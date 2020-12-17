@@ -1,0 +1,183 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #283348;
+}
+
+:root{
+    --border-color: #A0A0A0;
+}
+
+.root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+}
+
+.container{
+    background-color: #fff;
+    display: flex;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    
+    min-width: 350px;
+    max-width: 700px;
+
+}
+
+.container .container__left{
+    background-color: blue;
+}
+
+.container .container__right{
+    display: flex;
+    flex-direction: column;
+    padding: 35px 20px;
+    width: 100%;
+}
+
+.container__right .right__title{
+    color: #333333;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Name */
+
+.container__right .right__row-name{
+    display: flex;
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+}
+
+.right__row-name input{
+    background: none;
+    outline: none;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 5px;
+    width: 50%;
+}
+
+/* Email */
+
+.container__right .right__email{
+    display: flex;
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+}
+
+.right__email input{
+    background: none;
+    outline: none;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 5px 10px;
+    width: 100%;
+    margin: 5px;
+}
+
+/* Password */
+
+.container__right .right__row-password{
+    display: flex;
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    align-items: center;
+    position: relative;
+}
+
+.right__row-password input{
+    background: none;
+    outline: none;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 5px;
+    width: 50%;
+}
+
+.right__row-password span{
+    position: absolute;
+    left: 205px;
+    cursor: pointer;
+}
+
+
+/* Button */
+
+.container__right .right__signup-btn{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+}
+
+.right__signup-btn button{
+    background: none;
+    outline: none;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 5px 10px;
+    width: 100%;
+    margin: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.right__signup-btn button:hover{
+    background-color: #333;
+}
+
+.right__signup-btn button:hover span{
+    color: white;
+}
+
+/* Errors */
+
+.errors{
+    position: absolute;
+    top: 20px;
+    z-index: 9999;
+}
+
+.errors .error{
+    color: black;
+    font-family: 'Tajawal';
+    background-color: #F59C9C;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    text-align: center;
+}
+
+.errors .error:last-child{
+    margin-bottom: 0px;
+}
