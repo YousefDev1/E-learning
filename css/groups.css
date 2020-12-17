@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow: hidden;
+}
+
+/* Left Bar Edit */
+
+.left-bar__icons .left-bar__icon:nth-child(3) a{
+    color: white;
+}
+
+/* Main Container */
+
+.main-container{
+    background-color: white;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    margin-left: 80px;
+    z-index: 999;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    padding: 15px;
+}

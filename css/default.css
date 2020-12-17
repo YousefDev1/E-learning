@@ -1,0 +1,131 @@
+/* Left Bar */
+
+:root{
+    --bg-main-color: #202631;
+}
+
+.left-bar{
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 120px;
+    background-color: var(--bg-main-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-right: 40px;
+}
+
+.left-bar .left-bar__logo{
+    margin-bottom: auto;
+    padding-top: 30px;
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.left-bar__logo .logo{
+    text-decoration: none;
+    color: white;
+}
+
+.left-bar .left-bar__icons{
+    font-size: 20px;
+}
+
+.left-bar__icons .left-bar__icon{
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    animation-duration: 0.8s;
+}
+
+.left-bar__icons .left-bar__icon:nth-child(2){
+    animation-delay: 0.2s;
+}
+
+.left-bar__icons .left-bar__icon:nth-child(3){
+    animation-delay: 0.4s;
+}
+
+.left-bar__icons .left-bar__icon:nth-child(4){
+    animation-delay: 0.6s;
+}
+
+
+.left-bar__icons .left-bar__icon:last-child{
+    margin-bottom: 0px;
+}
+
+
+.left-bar__icon a{
+    text-decoration: none;
+    color:  #74787E;
+    padding: 10px;
+}
+
+.left-bar .left-bar__settings{
+    margin-top: auto;
+    padding-bottom: 50px;
+}
+
+.left-bar__settings .settings__icon{
+    font-size: 20px;
+    color: #74787E;
+    cursor: pointer;
+}
+
+
+
+
+/* Header */
+
+.container__header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.header__search{
+    display: flex;
+    align-items: center;
+}
+
+.header__search .search__search-box{
+    background: none;
+    outline: none;
+    border: 1.5px solid #EBEBEF;
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 5px 10px;
+    padding-left: 35px;
+}
+
+.header__search .search__search-btn{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.container__header .header__links{
+    margin-left: auto;
+    transform: translateX(-50%);
+    float: right;
+}
+
+.header__links .profile-img{
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.header__links .profile-img a img{
+    height: 80px;
+}
+
