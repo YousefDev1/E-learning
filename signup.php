@@ -24,6 +24,10 @@
 
             $f_name           = filter_var($_POST['f_name'], FILTER_SANITIZE_STRING);
             $l_name           = filter_var($_POST['l_name'], FILTER_SANITIZE_STRING);
+
+            $gender           = filter_var($_POST['gender']);
+            $date             = filter_var($_POST['date']);
+            
             $email            = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password         = filter_var($_POST['password']);
             $confirm_password = filter_var($_POST['confirm-password']);
@@ -39,7 +43,7 @@
                 $errors[] = "البريد الالكتروني مستخدم بالفعل";
             }
 
-            if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empty($confirm_password))
+            if(empty($f_name) || empty($l_name) || empty($gender) || empty($date) || empty($email) || empty($password) || empty($confirm_password))
             {
                 $errors[] = "لا يجب ترك اي حقل فارغ";
             }
@@ -57,10 +61,10 @@
             if(empty($errors))
             {
                 mysqli_query($db_conn, "INSERT INTO users(
-                    `f_name`, `l_name`, `email`, `password`
+                    `f_name`, `l_name`, `email`, `password`, `gender`, `date`
                 )
                 VALUES(
-                    '$f_name', '$l_name', '$email', '$password'
+                    '$f_name', '$l_name', '$email', '$password', '$gender', '$date'
                 )
                 ");
 
@@ -105,6 +109,14 @@
                     <div class="right__row-name">
                         <input type="text" placeholder="First Name.." name="f_name">
                         <input type="text" placeholder="Last Name.." name="l_name">
+                    </div>
+                    <div class="right__row-info">
+                        <select name="gender" class="gender" id="">
+                            <option value="">Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <input type="date" name="date" class="date">
                     </div>
                     <div class="right__email">
                         <input type="email" placeholder="Email.." name="email">

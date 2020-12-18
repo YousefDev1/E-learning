@@ -24,10 +24,10 @@
     <?php
 
 
-        echo $u_id;
+        /*echo $u_id;
 
         echo'
-            <img src="http://localhost:888/edu/uploads/'. $fetchuser['avatar'] .'" alt="">
+            <img src="http://localhost:888/edu/uploads/profile-imgs'. $fetchuser['avatar'] .'" alt="">
         ';
 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -37,19 +37,63 @@
 
             $name = md5(date('h : m : s')) . '_' . $avatar['name'];
 
-            move_uploaded_file($avatar['tmp_name'], 'uploads\\' . $name);
+            move_uploaded_file($avatar['tmp_name'], 'uploads\profile-imgs\\' . $name);
 
             mysqli_query($db_conn, "UPDATE users SET avatar='$name' WHERE u_id='$u_id'");
 
             
         
-        }
-
+        }*/
 
 
     ?>
 
-   
+   <div class="root">
+        <div class="container">
+            <div class="peofile">
+                <div class="profile__header">
+                    <div class="profile__img">
+                        <div class="image">
+                            <img src="http://localhost:888/edu/uploads/profile-imgs/<?php echo $fetchuser['avatar']; ?>" alt="" srcset="">
+                        </div>
+                    </div>
+                    <div class="profile__name">
+                        <div class="name">
+                            <?php echo $fetchuser['f_name'] . ' ' . $fetchuser['l_name']; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile__information">
+                    <div class="info__row-name">
+                        <input type="text" name="f_name" value="<?php echo $fetchuser['f_name']; ?>">
+                        <input type="text" name="l_name" value="<?php echo $fetchuser['l_name']; ?>">
+                    </div>
+                    <div class="info__row-gender">
+                        <select name="gender">
+                            <?php
+
+                            if($fetchuser['gender'] == 'male')
+                            {
+                                echo'
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                ';
+                            }elseif($fetchuser['gender'] == 'female')
+                            {
+                                echo'
+                                    <option value="female">Female</option>
+                                    <option value="male">Male</option>
+                                ';
+                            }
+
+                            ?>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+   </div>
 
    
 </body>

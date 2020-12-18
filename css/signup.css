@@ -75,6 +75,37 @@ body{
     width: 50%;
 }
 
+/* Info */
+
+.container__right .right__row-info{
+    display: flex;
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 5px;
+}
+
+.right__row-info .gender{
+    background: none;
+    outline: none;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 5px;
+    width: 50%;
+}
+
+.right__row-info .date{
+    background: none;
+    outline: none;
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 5px 10px;
+    margin: 5px;
+    width: 50%;
+}
+
 /* Email */
 
 .container__right .right__email{
