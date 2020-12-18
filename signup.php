@@ -13,9 +13,14 @@
     <?php
 
         require "conn.php";
+        session_start();
+
+    if(!isset($_SESSION['u_id']))
+    {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
+
 
             $f_name           = filter_var($_POST['f_name'], FILTER_SANITIZE_STRING);
             $l_name           = filter_var($_POST['l_name'], FILTER_SANITIZE_STRING);
@@ -23,7 +28,21 @@
             $password         = filter_var($_POST['password']);
             $confirm_password = filter_var($_POST['confirm-password']);
 
+            $selectusers = mysqli_query($db_conn, "SELECT * FROM users WHERE email='$email'");
+            $countusers  = mysqli_num_rows($selectusers);
+
             $errors = array();
+
+
+            if($countusers > 0)
+            {
+                $errors[] = "البريد الالكتروني مستخدم بالفعل";
+            }
+
+            if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empty($confirm_password))
+            {
+                $errors[] = "لا يجب ترك اي حقل فارغ";
+            }
 
             if(strlen($password) < 8)
             {
@@ -45,10 +64,16 @@
                 )
                 ");
 
-                header('location: index.php');
+                
+
+                header('location: login.php');
             }
         
         }
+
+    }else{
+        header('location: profile.php?u_id='. $_SESSION['u_id'] .'');
+    }
 
     ?>
     
@@ -93,6 +118,9 @@
                         <button name="signup">
                             <span>Sign Up</span>
                         </button>
+                    </div>
+                    <div class="right__login-link">
+                        <p>Already have an account ? <a href="login.php">Login</a></p>
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@ body{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     position: relative;
     
-    min-width: 350px;
+    min-width: 400px;
     max-width: 700px;
 
 }
@@ -53,26 +53,6 @@ body{
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-}
-
-/* Name */
-
-.container__right .right__row-name{
-    display: flex;
-    width: 100%;
-    padding: 5px 15px;
-    margin-bottom: 5px;
-}
-
-.right__row-name input{
-    background: none;
-    outline: none;
-    border: 1.5px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 15px;
-    padding: 5px 10px;
-    margin: 5px;
-    width: 50%;
 }
 
 /* Email */
@@ -114,25 +94,25 @@ body{
     font-size: 15px;
     padding: 5px 10px;
     margin: 5px;
-    width: 50%;
+    width: 100%;
 }
 
 .right__row-password span{
     position: absolute;
-    left: 205px;
+    left: 310px;
     cursor: pointer;
 }
 
 
 /* Button */
 
-.container__right .right__signup-btn{
+.container__right .right__login-btn{
     display: flex;
     width: 100%;
     padding: 10px;
 }
 
-.right__signup-btn button{
+.right__login-btn button{
     background: none;
     outline: none;
     border: 1.5px solid var(--border-color);
@@ -148,18 +128,19 @@ body{
     transition: 0.2s;
 }
 
-.right__signup-btn button:hover{
+.right__login-btn button:hover{
     background-color: #333;
     border: 1.5px solid #333;
 }
 
-.right__signup-btn button:hover span{
+.right__login-btn button:hover span{
     color: white;
 }
 
-/* Login Link */
 
-.right__login-link{
+/* Sign Up Link */
+
+.right__signup-link{
     font-family: sans-serif;
     width: 100%;
     display: flex;
@@ -193,3 +174,4 @@ body{
 .errors .error:last-child{
     margin-bottom: 0px;
 }
+ 
