@@ -61,10 +61,10 @@
             if(empty($errors))
             {
                 mysqli_query($db_conn, "INSERT INTO users(
-                    `f_name`, `l_name`, `email`, `password`, `gender`, `date`
+                    `f_name`, `l_name`, `email`, `password`, `gender`, `date`, `avatar`
                 )
                 VALUES(
-                    '$f_name', '$l_name', '$email', '$password', '$gender', '$date'
+                    '$f_name', '$l_name', '$email', '$password', '$gender', '$date', 'default-profile.png'
                 )
                 ");
 

@@ -1,7 +1,7 @@
 <div class="left-bar">
     <div class="left-bar__logo">
         <a href="index.php" class="logo">
-            Edu
+            E-Edu
         </a>
     </div>
     <div class="left-bar__icons">
