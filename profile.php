@@ -26,10 +26,22 @@
 
         echo $u_id;
 
+        echo'
+            <img src="http://localhost:888/edu/uploads/'. $fetchuser['avatar'] .'" alt="">
+        ';
+
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
 
-            echo $_FILES['avatar']['name'];
+            $avatar = $_FILES['avatar'];
+
+            $name = md5(date('h : m : s')) . '_' . $avatar['name'];
+
+            move_uploaded_file($avatar['tmp_name'], 'uploads\\' . $name);
+
+            mysqli_query($db_conn, "UPDATE users SET avatar='$name' WHERE u_id='$u_id'");
+
+            
         
         }
 
@@ -37,9 +49,8 @@
 
     ?>
 
-   <form method="POST" enctype="maltipart/form-data">
-        <input type="file" name="avatar">
-        <input type="submit" value="upload">
-   </form>
+   
+
+   
 </body>
 </html>
