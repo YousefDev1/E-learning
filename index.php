@@ -32,6 +32,115 @@
     ?>
     <div class="main-container">
         <?php include "./tmbl/header.php"; ?>
+        <div class="container">
+            <div class="container__left">
+                <div class="container__bolcks">
+                    <div class="block">
+                        <div class="block__icon">
+                            <span"><i class="fas fa-calendar-alt"></i></span>
+                        </div>
+                        <div class="block__title">
+                            <div class="title">
+                                Sessions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="block__icon">
+                            <span"><i class="fas fa-users"></i></span>
+                        </div>
+                        <div class="block__title">
+                            <div class="title">
+                                Groups
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="block__icon">
+                            <span><i class="fas fa-paperclip"></i></span>
+                        </div>
+                        <div class="block__title">
+                            <div class="title">
+                                HomeWorks
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="block">
+                        <div class="block__icon">
+                            <span><i class="fas fa-users"></i></span>
+                        </div>
+                        <div class="block__title">
+                            <div class="title">
+                                Groups
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="container__right">
+                <?php
+
+                    $selecttop_3 = mysqli_query($db_conn, "SELECT * FROM users ORDER BY rank DESC");
+                    $selecttop_10 = mysqli_query($db_conn, "SELECT * FROM users ORDER BY rank DESC");
+                    
+                    
+                ?>
+                <div class="right__rank">
+                    <div class="rank__title">
+                        <div class="title">
+                            Top Rank
+                        </div>
+                    </div>
+                    <div class="rank__top-3">
+                        <div class="top-3">
+                            <?php
+
+                                for($i = 0; $i < 3; $i++)
+                                {
+                                    while($fetchtop_3  = mysqli_fetch_array($selecttop_3))
+                                    {
+
+                                        echo'
+                                            <div class="user">
+                                                <div class="user__img">
+                                                    <div class="img">
+                                                        <img src="http://localhost:888/edu/uploads/profile-imgs/'. $fetchtop_3['avatar'] .'">
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        ';
+                                    }
+                                }
+                            ?>
+                        </div>
+                    </div>
+                    <div class="rank__top-10">
+                        
+                        <?php
+
+                            for($i = 0; $i < 10; $i++)
+                            {
+                                while($fetchtop_10  = mysqli_fetch_array($selecttop_10))
+                                {
+
+                                    echo'
+                                        <div class="user">
+                                            <div class="user__name">
+                                                <div class="name">
+                                                    '.$fetchtop_10['f_name'] . ' ' . $fetchtop_10['l_name'] .'
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ';
+                                }
+                            }
+                        ?>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

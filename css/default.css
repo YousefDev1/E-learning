@@ -86,7 +86,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding-right: 50px;
 }
 
 .header__search{
@@ -116,7 +115,6 @@
 
 .container__header .header__links{
     margin-left: auto;
-    transform: translateX(-50%);
     float: right;
 }
 
