@@ -33,56 +33,62 @@
 </head>
 <body>
     <?php
-
-    if($u_id == $_SESSION['u_id'])
+    if(isset($_SESSION['u_id']))
     {
 
-        include "tmbl/leftBar.php";
-
-
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        if($u_id == $_SESSION['u_id'])
         {
 
-            /*;
+            include "tmbl/leftBar.php";
 
-            
 
-            move_uploaded_file($avatar['tmp_name'], 'uploads\profile-imgs\\' . $name);
-
-            mysqli_query($db_conn, "UPDATE users SET avatar='$name' WHERE u_id='$u_id'");*/
-
-            $f_name = filter_var($_POST['f_name'], FILTER_SANITIZE_STRING);
-            $l_name = filter_var($_POST['l_name'], FILTER_SANITIZE_STRING);
-            $gender           = filter_var($_POST['gender']);
-
-            $avatar = filter_var($_FILES['avatar']);
-
-            if(!empty($_FILES['avatar']['name']))
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
             {
 
-                $name = md5(date('h : m : s')) . '_' . $_FILES['avatar']['name'];
+                /*;
 
-                move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads\profile-imgs\\' . $name);
                 
-            }else{
 
-                $name = $fetchuser['avatar'];
+                move_uploaded_file($avatar['tmp_name'], 'uploads\profile-imgs\\' . $name);
 
+                mysqli_query($db_conn, "UPDATE users SET avatar='$name' WHERE u_id='$u_id'");*/
+
+                $f_name = filter_var($_POST['f_name'], FILTER_SANITIZE_STRING);
+                $l_name = filter_var($_POST['l_name'], FILTER_SANITIZE_STRING);
+                $gender           = filter_var($_POST['gender']);
+
+                $avatar = filter_var($_FILES['avatar']);
+
+                if(!empty($_FILES['avatar']['name']))
+                {
+
+                    $name = md5(date('h : m : s')) . '_' . $_FILES['avatar']['name'];
+
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads\profile-imgs\\' . $name);
+                    
+                }else{
+
+                    $name = $fetchuser['avatar'];
+
+                }
+                
+                if(!empty($f_name) && !empty($l_name))
+                {
+                    mysqli_query($db_conn, "UPDATE users SET f_name='$f_name', l_name='$l_name', gender='$gender', avatar='$name' WHERE u_id='$u_id'");
+
+                    header('location: profile?u_id='. $u_id .'');
+                }
+                
+
+                
+            
             }
-            
-            if(!empty($f_name) && !empty($l_name))
-            {
-                mysqli_query($db_conn, "UPDATE users SET f_name='$f_name', l_name='$l_name', gender='$gender', avatar='$name' WHERE u_id='$u_id'");
-
-                header('location: profile?u_id='. $u_id .'');
-            }
-            
-
-            
-        
+        }else{
+            header('location: profile.php?u_id='. $_SESSION['u_id'] .'');
         }
+
     }else{
-        header('location: profile.php?u_id='. $_SESSION['u_id'] .'');
+        header('location: login.php ');
     }
 
 

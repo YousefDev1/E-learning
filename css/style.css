@@ -109,6 +109,7 @@ body{
 
 .container__right{
     padding: 10px 20px;
+    padding-top: 35px;
 }
 
 .container__right .right__rank{
@@ -219,4 +220,31 @@ body{
     font-size: 20px;
     font-family: sans-serif;
     padding-left: 15px;
+}
+
+/* Rank See More */
+
+.right__rank .rank__see-more{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top: 10px;
+}
+
+.rank__see-more .see-more__link{
+    background-color: #83C78E;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.1s;
+}
+
+.rank__see-more .see-more__link:hover{
+    background-color: #78BC83;
+}
+
+.rank__see-more .see-more__link a{
+    text-decoration: none;
+    color: white;
 }

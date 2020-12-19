@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.root{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container{
+    height: 100%;
+    width: 100%;
+}
+
+.main-container .back{
+    position: absolute;
+    z-index: 999999;
+    width: 80px;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.back .back-btn{
+    transform: translateX(-60px);
+    transition: 0.3s;
+    background: none;
+}
+
+.main-container .back:hover .back-btn{
+    transform: translateX(0px);
+}
+
+.back .back-btn button{
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    color: #2980b9;    
+}

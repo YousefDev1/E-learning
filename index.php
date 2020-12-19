@@ -95,7 +95,7 @@
                         <div class="top-3">
                             <?php
 
-                                for($i = 0; $i < 3; $i++)
+                                /*for($i = 0; $i < 3; $i++)
                                 {
                                     while($fetchtop_3  = mysqli_fetch_array($selecttop_3))
                                     {
@@ -110,7 +110,9 @@
                                             </div> 
                                         ';
                                     }
-                                }
+                                }*/
+
+                                
                             ?>
                         </div>
                     </div>
@@ -118,7 +120,7 @@
                         
                         <?php
 
-                            for($i = 0; $i < 10; $i++)
+                            /*for($i = 0; $i < 10; $i++)
                             {
                                 while($fetchtop_10  = mysqli_fetch_array($selecttop_10))
                                 {
@@ -133,14 +135,41 @@
                                         </div>
                                     ';
                                 }
-                            }
+                            }*/
                         ?>
 
                         
+                        
+                    </div>
+                    <div class="rank__see-more">
+                        <div class="see-more__link">
+                            <a href="rank" class="link">See More</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <script src="files/jquery-3.5.1.min.js"></script>
+    <script>
+        $.ajax({
+            url: "http://localhost:888/edu/apis/rank.php",
+            success: function (data) {
+                
+                for(var x=0; x < 3; x++)
+                {
+                    $('.rank__top-3 .top-3').append('<div class="user"><div class="user__img"><div class="img"><img src="http://localhost:888/edu/uploads/profile-imgs/'+ data[x]['avatar'] +'"></div></div></div> ')
+                }
+
+                for(var i=0; i < 10; i++)
+                {
+                    $('.rank__top-10').append('<div class="user"><div class="user__name">' + (i+1) + '- ' + data[i]['f_name'] + ' ' + data[i]['l_name'] +'<div class="name"></div></div></div>');
+                }
+                
+            }
+        });
+    </script>
 </body>
 </html>

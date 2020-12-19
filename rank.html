@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/abf2de4010.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="files/bootstrap-4.5.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/rank.css">
+    <title>Rank</title>
+</head>
+<body>
+    
+    <div class="root">
+        <div class="main-container">
+            <div class="back">
+                
+                <div class="back-btn">
+                    <button id="back-btn">
+                        <span><i class="fas fa-arrow-circle-left"></i></span>
+                    </button>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Score</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <script src="files/jquery-3.5.1.min.js"></script>
+    <script src="files/popper.min.js"></script>
+    <script src="files/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+    <script>
+        var backBtn = document.getElementById('back-btn');
+
+        backBtn.addEventListener('click', ()=>{
+            window.location = "index"
+        })
+        
+        $(document).ready(()=>{
+            $.ajax({
+                url: "http://localhost:888/edu/apis/rank.php",
+                success: function (data) {
+                    for(var i=0; i < data['count']; i++)
+                    {
+                        
+                        $('.tbody').append('<tr> <th scope="row">'+ (i + 1) +'</th> <th>'+ data[i]['f_name'] + ' ' + data[i]['l_name'] +'</th> <th>'+ data[i]['rank'] +'</th> </tr>')
+                    }
+                }
+            });
+        })
+    </script>
+</body>
+</html>
