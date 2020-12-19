@@ -6,16 +6,16 @@
     </div>
     <div class="left-bar__icons">
         <div class="left-bar__icon animate__animated animate__bounceInLeft">
-            <a href="index.php"><span><i class="far fa-user"></i></span></a>
+            <a href="index"><span><i class="far fa-user"></i></span></a>
         </div>
         <div class="left-bar__icon animate__animated animate__bounceInLeft">
-            <a href="lessons.php"><span><i class="fas fa-calendar-alt"></i></span></a>
+            <a href="lessons"><span><i class="fas fa-calendar-alt"></i></span></a>
         </div>
         <div class="left-bar__icon animate__animated animate__bounceInLeft">
-            <a href="groups.php"><span><i class="fas fa-users"></i></span></a>
+            <a href="groups"><span><i class="fas fa-users"></i></span></a>
         </div>
         <div class="left-bar__icon animate__animated animate__bounceInLeft">
-            <a href="homeworks.php"><span><i class="fas fa-paperclip"></i></span></a>
+            <a href="homeworks"><span><i class="fas fa-paperclip"></i></span></a>
         </div>
     </div>
     <div class="left-bar__settings">

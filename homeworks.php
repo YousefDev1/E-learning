@@ -16,7 +16,18 @@
         require "conn.php";
         session_start();
 
-        include "tmbl/leftBar.php";
+        if(isset($_SESSION['u_id']))
+        {
+            include "tmbl/leftBar.php";
+
+            $u_id = $_SESSION['u_id']; 
+
+            $selectuser = mysqli_query($db_conn, "SELECT * FROM users WHERE u_id='$u_id' ");
+            $fetchuser  = mysqli_fetch_array($selectuser);
+
+        }else{
+            header('location: login.php');
+        }
 
     ?>
     <div class="main-container">

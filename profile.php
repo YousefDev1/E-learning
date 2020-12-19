@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/abf2de4010.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/profile.css">
+    <style>
+    .left-bar{
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        padding-right: 0px;
+        width: 80px;
+
+        box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    </style>
     <?php
 
         require "conn.php";
@@ -26,6 +37,7 @@
     if($u_id == $_SESSION['u_id'])
     {
 
+        include "tmbl/leftBar.php";
 
 
         if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -62,7 +74,7 @@
             {
                 mysqli_query($db_conn, "UPDATE users SET f_name='$f_name', l_name='$l_name', gender='$gender', avatar='$name' WHERE u_id='$u_id'");
 
-                header('location: profile.php?u_id='. $u_id .'');
+                header('location: profile?u_id='. $u_id .'');
             }
             
 
@@ -78,6 +90,7 @@
 
    <div class="root">
         <div class="container">
+            
             <form action="" method="POST" enctype="multipart/form-data"> 
                 <div class="profile">
                     <div class="profile__header">
@@ -143,13 +156,22 @@
    
 
    <script>
-       var btn = document.getElementById('btn');
-       var file = document.getElementById('upload-img');
+       var file  = document.getElementById('upload-img');
+       var image = document.getElementById('image');
 
-       btn.addEventListener('click', function(){
-           file.click();
+       
+       file.addEventListener('change', function(){
+           const img = this.files[0];
+           if(img)
+           {
+               const reader = new FileReader();
+               reader.onload = function(){
+                   const result = reader.result;
+                   image.src = result;
+               }
+               reader.readAsDataURL(img)
+           }
        })
-
        
    </script>
 </body>
