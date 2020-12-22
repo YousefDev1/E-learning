@@ -60,10 +60,19 @@
             </div>
             <div class="container__main">
                 <div class="main__left">
-
+                    <div class="left">
+                        egd
+                    </div>
                 </div>
                 <div class="main__right">
-                    rytu
+                    <div class="right">
+                        <div class="title">
+                            <?php echo $fetchgroup['group_name'] ?>
+                        </div>
+                        <div class="content">
+                            <?php echo $fetchgroup['group_desc'] ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
